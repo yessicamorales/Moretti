@@ -26471,3 +26471,237 @@ Processing by ProvidersController#index as HTML
   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "providers"[0m
   Rendered providers/index.html.erb within layouts/application (5.6ms)
 Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2014-11-23 00:16:09 -0500
+Processing by ProvidersController#index as HTML
+  [1m[35mProvider Load (21.6ms)[0m  SELECT "providers".* FROM "providers"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "providers"[0m
+  Rendered providers/index.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 77ms (Views: 54.9ms | ActiveRecord: 21.8ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:10 -0500
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:10 -0500
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:10 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:10 -0500
+
+
+Started GET "/assets/bootstrap-multiselect.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:10 -0500
+
+
+Started GET "/assets/bootstrap-multiselect.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:10 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:10 -0500
+
+
+Started GET "/assets/orders.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:10 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:10 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:10 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-11-23 00:16:10 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:10 -0500
+
+
+Started DELETE "/providers/1" for 127.0.0.1 at 2014-11-23 00:16:14 -0500
+Processing by ProvidersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GODGDS8YTVgl3jAKm2kWyFkl5tzi18rp3xwktn5nHqk=", "id"=>"1"}
+  [1m[35mProvider Load (0.3ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "providers" WHERE "providers"."id" = ?  [["id", 1]]
+  [1m[36m (118.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/providers
+Completed 302 Found in 124ms (ActiveRecord: 118.9ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2014-11-23 00:16:14 -0500
+Processing by ProvidersController#index as HTML
+  [1m[35mProvider Load (0.2ms)[0m  SELECT "providers".* FROM "providers"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "providers"[0m
+  Rendered providers/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:14 -0500
+
+
+Started GET "/assets/bootstrap-multiselect.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:14 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:14 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:14 -0500
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:14 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:14 -0500
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:14 -0500
+
+
+Started GET "/assets/bootstrap-multiselect.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:14 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:14 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-11-23 00:16:15 -0500
+
+
+Started GET "/assets/orders.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:15 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:15 -0500
+
+
+Started GET "/products" for 127.0.0.1 at 2014-11-23 00:16:17 -0500
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? ORDER BY "categories"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "products"
+  Rendered products/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/products/1" for 127.0.0.1 at 2014-11-23 00:16:20 -0500
+Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GODGDS8YTVgl3jAKm2kWyFkl5tzi18rp3xwktn5nHqk=", "id"=>"1"}
+  [1m[36mProduct Load (0.6ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (6.2ms)[0m  [1mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 1]]
+  [1m[35m (17.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/products
+Completed 302 Found in 30ms (ActiveRecord: 23.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2014-11-23 00:16:20 -0500
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "products"
+  Rendered products/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:21 -0500
+
+
+Started GET "/assets/bootstrap-multiselect.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:21 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:21 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:21 -0500
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:21 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:21 -0500
+
+
+Started GET "/assets/bootstrap-multiselect.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:21 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:21 -0500
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:21 -0500
+
+
+Started GET "/assets/orders.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:21 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:21 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-11-23 00:16:21 -0500
+
+
+Started GET "/providers" for 127.0.0.1 at 2014-11-23 00:16:24 -0500
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.2ms)[0m  [1mSELECT "providers".* FROM "providers"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "providers"
+  Rendered providers/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2014-11-23 00:16:29 -0500
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 88ms (Views: 86.6ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/categories/1" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GODGDS8YTVgl3jAKm2kWyFkl5tzi18rp3xwktn5nHqk=", "id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (4.8ms)[0m  [1mDELETE FROM "categories" WHERE "categories"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 11ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+
+
+Started GET "/assets/bootstrap-multiselect.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+
+
+Started GET "/assets/bootstrap-multiselect.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+
+
+Started GET "/assets/orders.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-23 00:16:35 -0500
