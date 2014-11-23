@@ -1,0 +1,28 @@
+body{
+	padding-top:60px;
+}
+
+.navbar-brand img{
+	height:40px;
+	margin-top:-10px;
+}
+
+.btn-new{
+	margin-left:10px;
+}
+
+.form-group .input-group{
+	width: 100%;
+}
+
+.input-group select{
+	width: 100%;
+}
+
+.multiselect-search{
+	width: 98%;
+}
+
+img{
+	max-width: 100%;
+}

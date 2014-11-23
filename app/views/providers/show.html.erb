@@ -1,0 +1,43 @@
+<h1>Detalle de Proveedor</h1>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+  	<div class="col-xs-6 col-md-6 col-sm-6">
+		<% if  notice %>
+		<p class="alert alert-success">
+			<%= notice %>
+		</p>
+		<% end %>
+		<p>
+		  <strong>Nombre del producto:</strong>
+		  <%= @provider.name %>
+		</p>
+
+		<p>
+		  <strong>Contacto:</strong>
+		  <%= @provider.contact %>
+		</p>
+
+		<p>
+		  <strong>Teléfono:</strong>
+		  <%= @provider.phone %>
+		</p>
+
+		<p>
+		  <strong>Dirección:</strong>
+		  <%= @provider.address %>
+		</p>
+
+		<p>
+		  <strong>Productos que distribuye:</strong>
+		  <%= pluralize(@provider.products.count, "producto") %>
+		</p>		
+
+		<p>
+			<%= link_to 'Regresar', providers_path, {:class=>"btn btn-danger"}%>
+			<%= link_to 'Editar', edit_provider_path(@provider), {:class=>"btn btn-success"}%>
+		</p>
+  	</div>
+  </div>
+</div>

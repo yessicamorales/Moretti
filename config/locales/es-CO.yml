@@ -1,0 +1,25 @@
+es-CO:
+  activerecord:
+    models:
+      category: 'Categoría'
+    attributes:
+      category:
+        name: 'Nombre'
+        description: 'Descripción'
+      product:
+        name: 'Nombre'
+        description: 'Descripción'
+        quantity: 'Cantidad'
+        price: 'Precio'
+        picture: 'Imagen'
+
+
+  views:
+    product:
+      flash_messages:
+        product_was_successfully_created: 'Producto creado correctamente.'
+        product_was_successfully_updated: 'Producto actualizado correctamente.'
+    category:
+      flash_messages:
+        product_was_successfully_created: 'Categoría creada correctamente.'
+        product_was_successfully_updated: 'Categoría actualizada correctamente.'

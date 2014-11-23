@@ -1,0 +1,80 @@
+<%= form_for(@provider) do |f| %>
+  <% if @provider.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        Por favor corrige los siguientes errores para continuar:
+        <ul class="text-danger">
+          <% @provider.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+
+  <%= f.label :nombre %><br>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+      <%= f.text_field :name, {:class=>"form-control", :placeholder=>"Nombre del proveedor"}%>
+    </div>
+  </div>
+
+  <%= f.label :contacto %><br>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+      <%= f.text_field :contact, {:class=>"form-control", :placeholder=>"Contacto"}%>
+    </div>
+  </div>
+
+  <%= f.label :teléfono %><br>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+      <%= f.text_field :phone, {:class=>"form-control", :placeholder=>"Teléfono"}%>
+    </div>
+  </div>
+
+  <%= f.label :dirección %><br>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+      <%= f.text_field :address, {:class=>"form-control", :placeholder=>"Dirección"}%>
+    </div>
+  </div>
+  
+
+  <%= f.label :productos %><br>
+  <div class="form-group">
+    <div class="input-group">
+      <%= f.select :product_ids, Product.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $('select[multiple]').multiselect({
+            enableFiltering: true,
+            filterBehavior: 'value',
+            buttonWidth: '100%',
+            includeSelectAllOption: true,
+            selectAllText: 'Seleccionar todo'
+        });
+    });
+  </script>
+
+  <p>
+    <%= link_to "Regresar", providers_path, {:class=>"btn btn-danger"}%>
+    <button class="btn btn-success">
+      <% if @editing %>
+        Guardar cambios
+      <% else %>
+        Crear
+      <% end %>
+    </button>
+  </p>
+
+<% end %>
+

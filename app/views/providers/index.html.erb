@@ -1,0 +1,53 @@
+<h1>
+  <span><span class="fa fa-truck"></span> Proveedores </span>
+  <%= link_to 'Nuevo proveedor', new_provider_path, {:class=>"btn btn-success"} %>
+</h1>
+<hr>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th class="hidden-xs">Teléfono</th>
+          <th class="text-center">Ver</th>
+          <th class="text-center">Editar</th>
+          <th class="text-center">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @providers.each do |provider| %>
+          <tr>
+            <td><%= provider.name %></td>
+            <td><%= provider.phone %></td>
+            <td class="text-center">
+              <%= link_to provider do %>
+                  <b class="text-primary"><span class="fa fa-eye"></span></b>
+              <% end %>
+            </td>
+            <td class="text-center">
+              <%= link_to edit_provider_path(provider) do %>
+                  <b class="text-success"><span class="fa fa-edit"></span></b>
+              <% end %>
+            </td>
+            <td class="text-center">
+              <%= link_to provider, method: :delete, data: { confirm: 'Esta acción es irreversible. ¿Desea continuar?' } do %>
+                  <b class="text-danger"><span class="fa fa-trash"></span></b>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        <% if @providers.count == 0 %>
+          <tr>
+            <td colspan="6">
+              <p class="text-center alert alert-info">
+                No has creado proveedores. <b><%= link_to "Agregar un Proveedor", new_provider_path %></b>
+              </p>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
