@@ -10,7 +10,9 @@
       <thead>
         <tr>
           <th>Nombre</th>
-          <th class="hidden-xs">Teléfono</th>
+          <th class="hidden-xs">Contacto</th>
+          <th class="hidden-xs text-center">Teléfono</th>
+          <th class="hidden-xs text-center">Dirección</th>
           <th class="text-center">Ver</th>
           <th class="text-center">Editar</th>
           <th class="text-center">Eliminar</th>
@@ -20,7 +22,9 @@
         <% @providers.each do |provider| %>
           <tr>
             <td><%= provider.name %></td>
-            <td><%= provider.phone %></td>
+            <td class="hidden-xs"><%= provider.contact %></td>
+            <td class="hidden-xs text-center"><%= provider.phone %></td>
+            <td class="hidden-xs text-center"><%= provider.address %></td>
             <td class="text-center">
               <%= link_to provider do %>
                   <b class="text-primary"><span class="fa fa-eye"></span></b>

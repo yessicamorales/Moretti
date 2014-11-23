@@ -21,8 +21,8 @@
         <% @categories.each do |category| %>
           <tr>
             <td><%= category.name %></td>
-            <td><%= category.description %></td>
-            <td class="text-center">
+            <td class="hidden-xs"><%= category.description %></td>
+            <td class="hidden-xs text-center">
               <% if category.active %>
                Si
               <% else %>

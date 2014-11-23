@@ -9,8 +9,12 @@
     <table class="table">
       <thead>
         <tr>
+          <th></th>
           <th>Nombre</th>
-          <th class="hidden-xs">Categoría</th>
+          <th class="hidden-xs text-center">Precio</th>
+          <th class="hidden-xs text-center">Cantidad Disp.</th>
+          <th class="hidden-xs text-center">Manufacturado</th>
+          <th class="hidden-xs text-center">Categoría</th>
           <th class="text-center">Ver</th>
           <th class="text-center">Editar</th>
           <th class="text-center">Eliminar</th>
@@ -19,8 +23,20 @@
       <tbody>
         <% @products.each do |product| %>
           <tr>
+            <td>
+              <%= image_tag(product.picture_url, :width=>40, :class=>"img-thumbnail") if product.picture.present? %>
+            </td>
             <td><%= product.name %></td>
-            <td><%= product.category.name %></td>
+            <td class="hidden-xs text-center">$<%= product.price %></td>
+            <td class="hidden-xs text-center"><%= product.quantity %></td>
+            <td class="hidden-xs text-center">
+              <% if product.manufactured %>
+                Si
+              <% else %>
+                No
+              <% end %>
+            </td>
+            <td class="hidden-xs text-center"><%= product.category.name %></td>
             <td class="text-center">
               <%= link_to product do %>
                   <b class="text-primary"><span class="fa fa-eye"></span></b>
