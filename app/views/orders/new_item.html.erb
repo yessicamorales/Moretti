@@ -1,0 +1,31 @@
+<h1>Agregar Items a la orden <%= @order.id %></h1>
+<hr>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+  	<div class="col-xs-12 col-md-6 col-sm-6">
+		<form method="POST">
+			<%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+
+			<%= tag(:input, :type => "hidden", :name => "order_id", :value => @order.id) %>
+
+			<select name="product_id">
+				<% @products.each do |product| %>
+					<option value="<%=product.id%>"><%=product.name%></option>
+				<% end %>
+			</select>
+			<input class="form-control" type="number" placeholder="cantidad" name="quantity" style="width:40%;display:inline-block;" />
+			<button class="btn btn-success">Agregar</button>
+		</form>
+
+		  <script type="text/javascript">
+		    $(document).ready(function(){
+		      $('select').selectpicker(
+		        {liveSearch: true}
+		      );
+		    });
+		  </script>
+  	</div>
+  </div>
+</div>

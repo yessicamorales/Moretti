@@ -11,6 +11,7 @@
  *= require bootstrap.min
  *= require main
  *= require bootstrap-multiselect
+ *= require bootstrap-select
  *= require_self
  *= require_tree .
  */

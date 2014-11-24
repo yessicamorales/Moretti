@@ -9,7 +9,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  #gem 'pg'
 end
 
 # Use SCSS for stylesheets
@@ -41,6 +41,8 @@ end
 gem 'rails-i18n'
 
 gem 'bootstrap-multiselect-rails'
+
+gem 'bootstrap-select-rails'
 
 gem 'carrierwave'
 

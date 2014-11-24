@@ -1,27 +1,72 @@
-<h1>Listing orders</h1>
+<h1>
+  <span><span class="fa fa-ticket"></span> Órdenes </span>
+  <%= link_to 'Nueva orden', new_order_path, {:class=>"btn btn-success"} %>
+</h1>
+<hr>
 
-<table>
-  <thead>
-    <tr>
-      <th>Table</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.table %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Order', new_order_path %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Orden #</th>
+          <th class="hidden-xs text-center">Mesa</th>
+          <th class="hidden-xs text-center">Items</th>
+          <th class="hidden-xs text-center">Pagada</th>
+          <th class="text-center">Ver</th>
+          <th class="text-center">Editar</th>
+          <th class="text-center">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.id %></td>
+            <td class="hidden-xs text-center"><%= order.table %></td>
+            <td class="hidden-xs text-center"><%= order.order_items.count %></td>
+            <td class="text-center">
+              <% if order.pay %>
+                Si
+              <% else %>
+                No
+              <% end %>
+            </td>
+            
+            <td class="text-center">
+              <%= link_to order do %>
+                  <b class="text-primary"><span class="fa fa-eye"></span></b>
+              <% end %>
+            </td>
+            <td class="text-center">
+              <% if not order.pay %>
+                <%= link_to edit_order_path(order) do %>
+                    <b class="text-success"><span class="fa fa-edit"></span></b>
+                <% end %>
+              <% else %>
+                  <b><span class="fa fa-edit"></span></b>
+              <% end %>
+            </td>
+            <td class="text-center">
+              <% if not order.pay %>
+                <%= link_to order, method: :delete, data: { confirm: 'Esta acción es irreversible. ¿Desea continuar?' } do %>
+                    <b class="text-danger"><span class="fa fa-trash"></span></b>
+                <% end %>
+              <% else %>
+                  <b><span class="fa fa-remove"></span></b>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        <% if @orders.count == 0 %>
+          <tr>
+            <td colspan="9">
+              <p class="text-center alert alert-info">
+                No has creado ordenes. <b><%= link_to "Agregar una orden", new_order_path %></b>
+              </p>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

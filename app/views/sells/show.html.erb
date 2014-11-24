@@ -18,30 +18,52 @@
 				<td>
 					<b>Mesa: </b> <%= @sell.table %>
 				</td>
-				<td>
+				<td colspan="2">
 					<b>Fecha: </b> <%= @sell.created_at %>
 				</td>
 			</tr>
 			<tr class="text-center">
-				<td colspan="3"><b>Detalle</b></td>
+				<td colspan="4"><b>Detalle</b></td>
 			</tr>
+
+			<tr class="text-center">
+				<td><b>Producto</b></td>
+				<td><b>Precio</b></td>
+				<td><b>Cantidad</b></td>
+				<td><b>Subtotal</b></td>
+			</tr>
+
 			<% @sell.order.order_items.each do |item|%>
-				<%= item.quantity %>
+				<tr class="text-center">
+					<td><%= item.product.name %></td>
+					<td>$<%= item.product.price %></td>
+					<td><%= item.quantity %></td>
+					<td>$<%= item.product.price * item.quantity %></td>
+				</tr>
 			<% end %>
+
+			<tfoot>
+				<tr>
+					<td colspan="3" class="text-right">
+						<strong>Subtotal:</strong>
+					</td>
+					<td class="text-center">
+			  			$<%= @sell.subtotal %>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3" class="text-right">
+						<strong>Total:</strong>
+					</td>
+					<td class="text-center">
+			  			$<%= @sell.total %>
+					</td>
+				</tr>
+			</tfoot>
 		</table>
-		
-		<p>
-		  <strong>Total:</strong>
-		  <%= @sell.total %>
-		</p>
 
 		<p>
-		  <strong>Subtotal:</strong>
-		  <%= @sell.subtotal %>
-		</p>
-		<p>
 			<%= link_to 'Regresar', sells_path, {:class=>"btn btn-danger"}%>
-			<%= link_to 'Editar', edit_sell_path(@sell), {:class=>"btn btn-success"}%>
 		</p>
   	</div>
   </div>

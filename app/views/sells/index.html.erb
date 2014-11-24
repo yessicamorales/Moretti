@@ -14,7 +14,6 @@
           <th class="hidden-xs text-center">Subtotal</th>
           <th class="hidden-xs text-center">Total</th>
           <th class="text-center">Ver</th>
-          <th class="text-center">Eliminar</th>
         </tr>
       </thead>
       <tbody>
@@ -22,16 +21,11 @@
           <tr>
             <td class="text-center"><%= sell.id %></td>
             <td class="text-center"><%= sell.created_at %></td>
-            <td class="text-center"><%= sell.subtotal %></td>
-            <td class="text-center"><%= sell.total %></td>
+            <td class="text-center">$<%= sell.subtotal %></td>
+            <td class="text-center">$<%= sell.total %></td>
             <td class="text-center">
               <%= link_to sell do %>
                   <b class="text-primary"><span class="fa fa-eye"></span></b>
-              <% end %>
-            </td>
-            <td class="text-center">
-              <%= link_to sell, method: :delete, data: { confirm: 'Esta acción es irreversible. ¿Desea continuar?' } do %>
-                  <b class="text-danger"><span class="fa fa-trash"></span></b>
               <% end %>
             </td>
           </tr>

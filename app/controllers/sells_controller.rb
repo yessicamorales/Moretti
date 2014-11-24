@@ -27,7 +27,9 @@ class SellsController < ApplicationController
   def create
     @sell = Sell.new(sell_params)
 
-    order = Order.find_by table: @sell.table
+    order = Order.where(table: @sell.table, pay:false).last
+    order.pay = true
+    order.save
 
     subtotal = 0
     order.order_items.each do |item|

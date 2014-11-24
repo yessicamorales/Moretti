@@ -11,11 +11,63 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :table %><br>
-    <%= f.number_field :table %>
+  <%= f.label :mesa %><br>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+      <%= f.number_field :table, {:class=>"form-control", :placeholder=>"Mesa"}%>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <p>
+    <% if @editing %>
+      <% if @order.order_items.count > 0 %>
+        <div class="row">
+          <div class="col-xs-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="text-center">Producto</th>
+                  <th class="text-center">Cantidad</th>
+                  <th class="text-center">Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @order.order_items.each do |item| %>
+                  <tr class="text-center">
+                    <td><%=item.product.name%></td>
+                    <td><%=item.quantity%></td>
+                    <td class="text-center">
+                      <a href="delete_item/<%= item.id %>">
+                        <b class="text-danger"><span class="fa fa-trash"></span></b>
+                      </a>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>  
+          </div>        
+        </div>
+      <% end %>
+      <%= link_to "Agregar Items", "new_item", {:class=>"btn btn-danger"}%>
+    <% end %>
+  </p>
+
+  <p>
+    <%= link_to "Regresar", orders_path, {:class=>"btn btn-danger"}%>
+    <button class="btn btn-success">
+      <% if @editing %>
+        Guardar cambios
+      <% else %>
+        Crear
+      <% end %>
+    </button>
+  </p>
+
 <% end %>
+
+
+
+
+
+

@@ -19,17 +19,17 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @editing = true
   end
 
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = Order.create(order_params)
 
     respond_to do |format|
       if @order.save
-        puts "yeah"
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html { redirect_to edit_order_path(@order), notice: 'Order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @order }
       else
         format.html { render action: 'new' }
@@ -62,6 +62,34 @@ class OrdersController < ApplicationController
     end
   end
 
+  def new_item
+    @order = Order.find(params[:id])
+    @products = Product.where.not(id: @order.product_ids)
+  end
+
+  def add_item
+    item = OrderItem.new(item_params)
+    if item.save
+      item.order.save
+      @order = item.order.save
+
+      respond_to do |format|
+        format.html { redirect_to edit_order_path(order: @order), notice: 'Item agregado.' }
+        format.json { head :no_content }
+      end
+    end
+  end
+
+  def delete_item
+    @item = OrderItem.find(params[:item])
+    @order = @item.order
+    @item.destroy
+    respond_to do |format|
+      format.html { redirect_to edit_order_path(@order) }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
@@ -71,5 +99,9 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:table)
+    end
+
+    def item_params
+      params.permit(:order_id, :product_id, :quantity)
     end
 end

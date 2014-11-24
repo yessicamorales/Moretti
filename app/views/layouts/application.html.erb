@@ -51,13 +51,29 @@
 		            		<span class="fa fa-truck"></span> &nbsp; Proveedores
 		            	<% end %>
 		            </li>
-		            <li><a href="#">Another action</a></li>
-		            <li><a href="#">Something else here</a></li>
 		            <li class="divider"></li>
-		            <li><a href="#">Separated link</a></li>
-		            <li class="divider"></li>
-		            <li><a href="#">One more separated link</a></li>
+		            <li>
+		            	<%= link_to orders_path do%>
+		            		<span class="fa fa-ticket"></span> &nbsp; Órdenes
+		            	<% end %>
+		            </li>
+		            <li>
+		            	<%= link_to sells_path do%>
+		            		<span class="fa fa-credit-card"></span> &nbsp; Ventas
+		            	<% end %>
+		            </li>
+
 		          </ul>
+		        </li>
+		        <li>
+		        	<%= link_to new_order_path do%>
+	            		<span class="fa fa-ticket"></span> &nbsp; Registrar Orden
+	            	<% end %>
+		        </li>
+		        <li>
+		        	<%= link_to new_sell_path do%>
+	            		<span class="fa fa-list-ul"></span> &nbsp; Registrar Venta
+	            	<% end %>
 		        </li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
