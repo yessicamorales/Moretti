@@ -1,0 +1,46 @@
+<h1>
+  <span><span class="fa fa-ticket"></span> Usuarios </span>
+  <%= link_to 'Nuevo Usuario', new_user_registration_path, {:class=>"btn btn-success"} %>
+</h1>
+<hr>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombres</th>
+          <th class="hidden-xs text-center">Apellidos</th>
+          <th class="hidden-xs text-center">Email</th>
+          <th class="hidden-xs text-center">Teléfono</th>
+          <th class="hidden-xs text-center">Dirección</th>
+          <th class="text-center">Ver</th>
+          <th class="text-center">Editar</th>
+          <th class="text-center">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.last_name %></td>
+            <td class="hidden-xs text-center"><%= user.last_name %></td>
+            <td class="hidden-xs text-center"><%= user.email %></td>
+            <td class="hidden-xs text-center"><%= user.phone %></td>
+            <td class="hidden-xs text-center"><%= user.address %></td>
+            
+            
+          </tr>
+        <% end %>
+        <% if @users.count == 0 %>
+          <tr>
+            <td colspan="9">
+              <p class="text-center alert alert-info">
+                No has creado ordenes. <b><%= link_to "Agregar una orden", new_user_path %></b>
+              </p>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

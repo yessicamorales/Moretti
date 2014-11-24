@@ -1,4 +1,6 @@
 Moretti::Application.routes.draw do
+  devise_for :users
+  
   resources :sells
 
   resources :orders
@@ -13,7 +15,7 @@ Moretti::Application.routes.draw do
   get 'orders/:id/new_item/' => 'orders#new_item'
   post 'orders/:id/new_item/' => 'orders#add_item'
   get 'orders/:id/delete_item/:item' => 'orders#delete_item'
-
+  get 'users/' => 'application#index_users'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

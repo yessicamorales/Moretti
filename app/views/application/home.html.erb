@@ -13,4 +13,14 @@
 			</div>
 		</a>
 	<% end %>
+	<%= link_to destroy_user_session_path, method: :delete do %>
+		<div class="panel panel-default launcher text-center">
+		  <div class="panel-body">
+		    <h1 class="giant">
+		    	<span class="fa fa-send"></span>
+		    </h1>
+		    <h2> Cerrar Sesión</h2>
+		  </div>
+		</div>
+	<% end %>
 </div>

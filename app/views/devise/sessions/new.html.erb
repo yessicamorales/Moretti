@@ -1,0 +1,44 @@
+<h1>Ingresar</h1>
+<hr>
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <div class="col-xs-12 col-md-6 col-sm-6">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <%= f.label :email %><br>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+            <%= f.email_field :email, {:class=>"form-control", :placeholder=>"Email"} %>
+          </div>
+        </div>
+
+        <%= f.label :contraseña %><br>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+              <%= f.password_field :password, {:class=>"form-control", :placeholder=>"Contraseña"}%>
+          </div>
+        </div>
+        <div>
+          <p>
+            <% if devise_mapping.rememberable? -%>
+                <%= f.check_box :remember_me %>
+                <%= f.label :recordarme_en_este_equipo %>
+            <% end -%>
+          </p>
+        </div>
+
+        <div>
+          <button class="btn btn-success" style="margin-right:20px;">
+            Iniciar sesión
+          </button>
+          <a href="/users/password/new">Recuperar contraseña</a>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

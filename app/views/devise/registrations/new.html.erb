@@ -1,0 +1,78 @@
+<h1>Nuevo Usuario</h1>
+<hr>
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <div class="col-xs-12 col-md-6 col-sm-6">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <%= f.label :nombre %><br>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+            <%= f.text_field :first_name, {:class=>"form-control", :placeholder=>"Nombres"}%>
+          </div>
+        </div>
+
+         <%= f.label :apellido %><br>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+            <%= f.text_field :last_name, {:class=>"form-control", :placeholder=>"Apellidos"}%>
+          </div>
+        </div>
+
+        <%= f.label :email %><br>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+            <%= f.email_field :email, {:class=>"form-control", :placeholder=>"Email"} %>
+          </div>
+        </div>
+
+        <%= f.label :contraseña %><br>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+              <%= f.password_field :password, {:class=>"form-control", :placeholder=>"Contraseña"}%>
+          </div>
+        </div>
+
+        <%= f.label :confirmar_contraseña %><br>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+              <%= f.password_field :password_confirmation, {:class=>"form-control", :placeholder=>"Confirmar Contraseña"}%>
+          </div>
+        </div>
+
+        <%= f.label :teléfono %><br>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+            <%= f.text_field :phone, {:class=>"form-control", :placeholder=>"Teléfono"}%>
+          </div>
+        </div>
+
+         <%= f.label :dirección %><br>
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><span class="fa fa-chevron-right"></span></span>
+            <%= f.text_field :address, {:class=>"form-control", :placeholder=>"Dirección"}%>
+          </div>
+        </div>
+
+        <p>
+          <%= link_to "Regresar", root_path, {:class=>"btn btn-danger"}%>
+          <button class="btn btn-success">
+              Registrar
+          </button>
+        </p>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render "devise/shared/links" %>
