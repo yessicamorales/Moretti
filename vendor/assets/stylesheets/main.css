@@ -30,3 +30,13 @@ img{
 .bs-searchbox{
 	height: 50px;
 }
+
+.launcher{
+	max-width: 20%;
+	min-width: 20%;
+	display: inline-block;
+}
+
+.launcher .giant{
+	font-size: 75px;
+}

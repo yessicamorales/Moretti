@@ -1,0 +1,16 @@
+<div class="well text-center" style="height:80%">
+	<% @menus.each do |menu| %>
+		<a href="<%= menu[:link]%>">
+			<div class="panel panel-default launcher text-center">
+			  <div class="panel-body">
+			    <h1 class="giant">
+			    	<span class="<%= menu[:icon] %>"></span>
+			    </h1>
+			    <h2>
+			    	<%= menu[:title] %>
+			    </h2>
+			  </div>
+			</div>
+		</a>
+	<% end %>
+</div>
