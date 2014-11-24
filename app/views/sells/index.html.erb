@@ -1,0 +1,51 @@
+<h1>
+  <span><span class="fa fa-credit-card"></span> Ventas </span>
+  <%= link_to 'Registrar nueva venta', new_sell_path, {:class=>"btn btn-success"} %>
+</h1>
+<hr>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center">Factura #</th>
+          <th class="hidden-xs text-center">Fecha</th>
+          <th class="hidden-xs text-center">Subtotal</th>
+          <th class="hidden-xs text-center">Total</th>
+          <th class="text-center">Ver</th>
+          <th class="text-center">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @sells.each do |sell| %>
+          <tr>
+            <td class="text-center"><%= sell.id %></td>
+            <td class="text-center"><%= sell.created_at %></td>
+            <td class="text-center"><%= sell.subtotal %></td>
+            <td class="text-center"><%= sell.total %></td>
+            <td class="text-center">
+              <%= link_to sell do %>
+                  <b class="text-primary"><span class="fa fa-eye"></span></b>
+              <% end %>
+            </td>
+            <td class="text-center">
+              <%= link_to sell, method: :delete, data: { confirm: 'Esta acción es irreversible. ¿Desea continuar?' } do %>
+                  <b class="text-danger"><span class="fa fa-trash"></span></b>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        <% if @sells.count == 0 %>
+          <tr>
+            <td colspan="9">
+              <p class="text-center alert alert-info">
+                No has registrado ventas. <b><%= link_to "Registrar una venta", new_sell_path %></b>
+              </p>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

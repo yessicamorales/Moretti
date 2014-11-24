@@ -1,0 +1,48 @@
+<h1>Detalle de venta</h1>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+  	<div class="col-xs-12 col-md-6 col-sm-6">
+		<% if  notice %>
+			<p class="alert alert-success">
+				<%= notice %>
+			</p>
+		<% end %>
+		
+		<table class="table table-bordered">
+			<tr>
+				<td>
+					<b>Factura #</b> <%= @sell.id %>
+				</td>
+				<td>
+					<b>Mesa: </b> <%= @sell.table %>
+				</td>
+				<td>
+					<b>Fecha: </b> <%= @sell.created_at %>
+				</td>
+			</tr>
+			<tr class="text-center">
+				<td colspan="3"><b>Detalle</b></td>
+			</tr>
+			<% @sell.order.order_items.each do |item|%>
+				<%= item.quantity %>
+			<% end %>
+		</table>
+		
+		<p>
+		  <strong>Total:</strong>
+		  <%= @sell.total %>
+		</p>
+
+		<p>
+		  <strong>Subtotal:</strong>
+		  <%= @sell.subtotal %>
+		</p>
+		<p>
+			<%= link_to 'Regresar', sells_path, {:class=>"btn btn-danger"}%>
+			<%= link_to 'Editar', edit_sell_path(@sell), {:class=>"btn btn-success"}%>
+		</p>
+  	</div>
+  </div>
+</div>

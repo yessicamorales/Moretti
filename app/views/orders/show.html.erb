@@ -4,6 +4,11 @@
   <strong>Table:</strong>
   <%= @order.table %>
 </p>
+<ul>
+	<% @order.order_items.each do |item| %>
+		<li><%= item.product.price * item.quantity %></li>
+	<% end %>
+</ul>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

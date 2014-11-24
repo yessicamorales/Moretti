@@ -1,0 +1,69 @@
+<h1>
+  <span><span class="fa fa-glass"></span> Productos </span>
+  <%= link_to 'Nuevo producto', new_product_path, {:class=>"btn btn-success"} %>
+</h1>
+<hr>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Nombre</th>
+          <th class="hidden-xs text-center">Precio</th>
+          <th class="hidden-xs text-center">Cantidad Disp.</th>
+          <th class="hidden-xs text-center">Manufacturado</th>
+          <th class="hidden-xs text-center">Categoría</th>
+          <th class="text-center">Ver</th>
+          <th class="text-center">Editar</th>
+          <th class="text-center">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td>
+              <%= image_tag(product.picture_url, :width=>40, :class=>"img-thumbnail") if product.picture.present? %>
+            </td>
+            <td><%= product.name %></td>
+            <td class="hidden-xs text-center">$<%= product.price %></td>
+            <td class="hidden-xs text-center"><%= product.quantity %></td>
+            <td class="hidden-xs text-center">
+              <% if product.manufactured %>
+                Si
+              <% else %>
+                No
+              <% end %>
+            </td>
+            <td class="hidden-xs text-center"><%= product.category.name %></td>
+            <td class="text-center">
+              <%= link_to product do %>
+                  <b class="text-primary"><span class="fa fa-eye"></span></b>
+              <% end %>
+            </td>
+            <td class="text-center">
+              <%= link_to edit_product_path(product) do %>
+                  <b class="text-success"><span class="fa fa-edit"></span></b>
+              <% end %>
+            </td>
+            <td class="text-center">
+              <%= link_to product, method: :delete, data: { confirm: 'Esta acción es irreversible. ¿Desea continuar?' } do %>
+                  <b class="text-danger"><span class="fa fa-trash"></span></b>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        <% if @products.count == 0 %>
+          <tr>
+            <td colspan="9">
+              <p class="text-center alert alert-info">
+                No has creado productos. <b><%= link_to "Agregar un Producto", new_product_path %></b>
+              </p>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

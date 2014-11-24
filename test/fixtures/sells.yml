@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  table: 1
+  sell_date: 2014-11-23 12:50:24
+  total: 1.5
+  subtotal: 1.5
+
+two:
+  table: 1
+  sell_date: 2014-11-23 12:50:24
+  total: 1.5
+  subtotal: 1.5

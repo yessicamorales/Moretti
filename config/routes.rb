@@ -1,4 +1,6 @@
 Moretti::Application.routes.draw do
+  resources :sells
+
   resources :orders
 
   resources :providers
@@ -6,6 +8,8 @@ Moretti::Application.routes.draw do
   resources :products
 
   resources :categories
+
+  get 'products/filter_by_cat/:id' => 'products#filter_by_cat'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
